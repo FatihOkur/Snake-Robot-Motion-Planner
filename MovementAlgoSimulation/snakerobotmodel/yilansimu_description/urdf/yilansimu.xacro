@@ -1,0 +1,144 @@
+<?xml version="1.0" ?>
+<robot name="yilansimu" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find yilansimu_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find yilansimu_description)/urdf/yilansimu.trans" />
+<xacro:include filename="$(find yilansimu_description)/urdf/yilansimu.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.010140486124849883 4.3371337475389595e-08 1.3412238498127023e-08" rpy="0 0 0"/>
+    <mass value="0.0045795100400537"/>
+    <inertia ixx="0.0" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://yilansimu_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://yilansimu_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="vagon_2_1">
+  <inertial>
+    <origin xyz="0.01853454749117604 2.2477804808574556e-08 1.0179807043573104e-08" rpy="0 0 0"/>
+    <mass value="0.008294307256815443"/>
+    <inertia ixx="1e-06" iyy="4e-06" izz="4e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.019292 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://yilansimu_description/meshes/vagon_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.019292 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://yilansimu_description/meshes/vagon_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="vagon_3_1">
+  <inertial>
+    <origin xyz="0.018534610223486 2.2477804796088586e-08 1.01798070413029e-08" rpy="0 0 0"/>
+    <mass value="0.008294307256815481"/>
+    <inertia ixx="1e-06" iyy="4e-06" izz="4e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.082299 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://yilansimu_description/meshes/vagon_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.082299 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://yilansimu_description/meshes/vagon_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="vagon_4_1">
+  <inertial>
+    <origin xyz="0.018534672955795556 2.2477804815385055e-08 1.0179807043573117e-08" rpy="0 0 0"/>
+    <mass value="0.008294307256815433"/>
+    <inertia ixx="1e-06" iyy="4e-06" izz="4e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.145306 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://yilansimu_description/meshes/vagon_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.145306 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://yilansimu_description/meshes/vagon_4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="vagon_5_1">
+  <inertial>
+    <origin xyz="0.01642845287141645 -5.974834763900499e-18 -7.169801716680599e-18" rpy="0 0 0"/>
+    <mass value="0.007878620598601473"/>
+    <inertia ixx="1e-06" iyy="3e-06" izz="3e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.208313 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://yilansimu_description/meshes/vagon_5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.208313 -0.0 -0.0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://yilansimu_description/meshes/vagon_5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 30" type="revolute">
+  <origin xyz="0.019292 0.0 0.0" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="vagon_2_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="1.396263" lower="-1.396263" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 31" type="revolute">
+  <origin xyz="0.063007 0.0 0.0" rpy="0 0 0"/>
+  <parent link="vagon_2_1"/>
+  <child link="vagon_3_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="1.396263" lower="-1.396263" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 32" type="revolute">
+  <origin xyz="0.063007 0.0 0.0" rpy="0 0 0"/>
+  <parent link="vagon_3_1"/>
+  <child link="vagon_4_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="1.396263" lower="-1.396263" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 33" type="revolute">
+  <origin xyz="0.063007 0.0 0.0" rpy="0 0 0"/>
+  <parent link="vagon_4_1"/>
+  <child link="vagon_5_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="1.396263" lower="-1.396263" effort="100" velocity="100"/>
+</joint>
+
+</robot>
