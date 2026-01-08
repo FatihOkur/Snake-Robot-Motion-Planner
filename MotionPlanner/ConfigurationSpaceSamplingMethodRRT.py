@@ -37,7 +37,7 @@ INFLATION_RADIUS = int(SNAKE_WIDTH / 2.0 + 1.0)
 # Constraints
 JOINT_LIMIT = 50.0
 MAX_JOINT_CHANGE = 20.0
-MAX_TURN_ANGLE = np.deg2rad(70)
+MAX_TURN_ANGLE = np.deg2rad(50)
 
 # RRT Parameters
 RRT_STEP_SIZE = 3.0
@@ -450,8 +450,8 @@ class ConfigurationSpaceRRT:
         pos_error = np.linalg.norm(current_state[:2] - goal_state[:2])
         angle_error = np.linalg.norm(current_state[2:] - goal_state[2:])
         
-        POS_TOLERANCE = 4.0
-        ANGLE_TOLERANCE = 30.0
+        POS_TOLERANCE = 2.0
+        ANGLE_TOLERANCE = 15.0
         
         if pos_error <= POS_TOLERANCE and angle_error <= ANGLE_TOLERANCE:
             return True, pos_error, angle_error
@@ -605,7 +605,7 @@ def main():
                 if node.parent:
                     ax.plot([node.parent.state[0], node.state[0]], 
                             [node.parent.state[1], node.state[1]], 
-                            color='cyan', linewidth=0.3, alpha=0.2)
+                            color='blue', linewidth=0.3, alpha=1.0)
 
             # Draw current snake
             if planner.nodes:
@@ -661,7 +661,7 @@ def main():
             ax.set_title(f"OPTIMIZED 5-Segment Snake Path: {progress}%")
             plt.pause(0.01)
         
-        ax.set_title("🎯 Target Reached! (OPTIMIZED)")
+        ax.set_title("Target Reached!")
         plt.ioff()
         plt.show()
     else:

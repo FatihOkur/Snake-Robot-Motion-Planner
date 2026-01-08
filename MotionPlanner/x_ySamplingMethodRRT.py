@@ -21,7 +21,7 @@ INFLATION_RADIUS = int(SNAKE_WIDTH / 2.0 + 1.0)
 
 # Constraints
 JOINT_LIMIT = 50.0
-MAX_TURN_ANGLE = np.deg2rad(70) 
+MAX_TURN_ANGLE = np.deg2rad(50) 
 
 RRT_STEP_SIZE = 3.0     
 MAX_ITER = 10000        
@@ -340,8 +340,8 @@ class CSpaceRRT:
         goal_joints = goal_state[2:]
         angle_error = np.linalg.norm(current_joints - goal_joints)
         
-        POS_TOLERANCE = 4.0
-        ANGLE_TOLERANCE = 30.0
+        POS_TOLERANCE = 2.0
+        ANGLE_TOLERANCE = 15.0
         
         if pos_error <= POS_TOLERANCE and angle_error <= ANGLE_TOLERANCE:
             return True, pos_error, angle_error
@@ -595,7 +595,7 @@ def main():
             ax.set_title(f"OPTIMIZED Path: {int(i/len(smooth_bodies)*100)}%")
             plt.pause(0.01)
         
-        ax.set_title("Target Reached (OPTIMIZED). Close window.")
+        ax.set_title("Target Reached. Close window.")
         plt.ioff()
         plt.show() 
     else:
